@@ -1,0 +1,36 @@
+html,
+body,
+#__next {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+.wrap {
+  /* background: #eeeeee; */
+  height: 100%;
+  width: 100%;
+  /* background: url("/static/beach.jpg") no-repeat; */
+  background: #f3f3f3;
+  text-align: center;
+  overflow: auto;
+}
+
+h4 {
+  cursor: pointer;
+}
+
+.loginName {
+  float: right;
+}
+
+.btn {
+  width: 200px;
+  background: #6495edc7;
+  margin: 0 auto;
+  border-radius: 5px;
+  color: white;
+  line-height: 31px;
+  letter-spacing: 19px;
+  text-align: center;
+  cursor: pointer;
+}
