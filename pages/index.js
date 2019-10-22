@@ -6,6 +6,7 @@ import { Button } from 'antd';
 
 import "./index.css";
 import { changeWelcome } from "../src/actions/homeAction";
+import HeaderContainer from '../src/containers/HeaderContainer';
 
 // export default
 class index extends Component {
@@ -27,13 +28,9 @@ class index extends Component {
             content="initial-scale=1.0,width=device-width"
           />
         </Head>
-        <div style={{ overflow: "auto" }}>
+        {/* <div style={{ overflow: "auto" }}>
           <span className="loginName">{loginName}</span>
         </div>
-        <h1>home</h1>
-        <Link href="/home">
-          <h4>to /home</h4>
-        </Link>
 
         <h1>路由转到 /login</h1>
         <Link href="/login">
@@ -46,9 +43,10 @@ class index extends Component {
           修改 reducer 欢迎语
         </h1>
 
-        <h2>{welcome}</h2>
+        <h2>{welcome}</h2> */}
 
         <Button>asd</Button>
+        <HeaderContainer />
       </div>
     );
   }

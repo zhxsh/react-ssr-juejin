@@ -1,0 +1,99 @@
+
+@baseRem: 1/12rem;
+
+.header {
+    display: flex;
+    height: 60*@baseRem;
+    padding: 0*@baseRem 2%;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 16*@baseRem;
+    color: #007fff;
+
+    background: #FFF;
+
+    // position: sticky;
+    // position: -webkit-sticky;
+    // top: -10px;
+
+    .menu {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        .index {
+            position: relative;
+            margin-left: 15*@baseRem;
+
+            display: flex;
+            min-width: 45*@baseRem;
+            // 62
+            height: 100%;
+            padding: 0 2rem;
+            
+            align-items: center;
+            cursor: pointer;
+            // transition: all 0.3s linear;
+            ul {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                
+                display: none;
+                padding: 0 1.6rem;
+                // width: 100*@baseRem;
+
+                background: #FFF;
+                border: 1px solid #cdcdcd;
+                border-radius: 5*@baseRem;
+                list-style: none;
+                
+                li {
+                    line-height: 4rem;
+                    text-align: center;
+                    color: #71777c;
+                    a {
+                        color: #71777c;
+                        text-decoration: none;
+                    }
+                    &.active {
+                        color: #007fff;
+                        a {
+                            color: #007fff;
+                        }
+                    }
+                }
+            }
+            ul.block {
+                display: block;
+            }
+        }
+
+        .triangle {
+            margin: 8*@baseRem 0 0 2*@baseRem;
+
+            width: 0;
+            height: 0;
+
+            border: 5px solid transparent;
+            border-top-color: #007fff;
+        }
+    }
+
+    .user {
+        display: flex;
+        align-items: center;
+
+        span {
+            cursor: pointer;
+            &.circle {
+                margin: 0 4*@baseRem;
+
+                cursor: default;
+            }
+        }
+    }
+}
+
+

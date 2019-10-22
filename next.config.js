@@ -1,6 +1,7 @@
 const withCss = require("@zeit/next-css");
+const withLess = require("@zeit/next-less");
 
-module.exports = withCss({
+module.exports = withCss(withLess({
     webpack: (config, { isServer }) => {
         if (isServer) {
             const antStyles = /antd\/.*?\/style\/css.*?/
@@ -24,4 +25,4 @@ module.exports = withCss({
         }
         return config
     },
-});
+}));
