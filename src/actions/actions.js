@@ -6,20 +6,27 @@ import api from '../Api/api'
 axios.defaults.baseURL = 'http://localhost:9500';
 
 export const getTimeline = () => {
-    return dispatch => {
-        return axios.get(api.timeline)
-            .then(function(res){
-                console.log('timelinezxs',res.data.m);
-                dispatch({
-                    type: types.GET_TIMELINE,
-                    payload: {
-                        articleList: res.data.d
-                    }
-                });
-            })
+    // return dispatch => {
+    // return 
+    axios.get(api.timeline)
+        .then(function (res) {
+            console.log('timelinezxs', res.data.m);
+            return {
+                type: types.GET_TIMELINE,
+                payload: {
+                    articleList: res.data.d
+                }
+            };
+            // dispatch({
+            //     type: types.GET_TIMELINE,
+            //     payload: {
+            //         articleList: res.data.d
+            //     }
+            // });
+        })
 
-    }
-    
+    // }
+
 }
 
 

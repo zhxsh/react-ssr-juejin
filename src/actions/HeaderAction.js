@@ -1,7 +1,7 @@
 import * as types from './ActionTypes';
 
 
-export const changeNav = (curNav,props) => {
+export const changeNav = (curNav, props) => {
     // console.log(curNav.key);
     // location.pathname = curNav.key;
     // props.history.push('/'+item.key);
@@ -20,15 +20,14 @@ export const changeNav = (curNav,props) => {
 }
 
 export const showMenu = show => {
-    // return {
-    //     type: types.SHOW_MENU,
-    //     payload: {
-    //         show: !show
-    //     }
-    // }
+    return {
+        type: types.SHOW_MENU,
+        payload: {
+            show: !show
+        }
+    }
 
     return dispatch => {
-
         console.error('zxs show');
         dispatch({
             type: types.SHOW_MENU,

@@ -45,7 +45,7 @@ class index extends Component {
 
         <h2>{welcome}</h2> */}
 
-        <Button>asd</Button>
+
         <HeaderContainer />
       </div>
     );

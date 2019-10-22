@@ -4,15 +4,20 @@ body,
   height: 100%;
   width: 100%;
   margin: 0;
-}
-.wrap {
-  /* background: #eeeeee; */
-  height: 100%;
-  width: 100%;
-  /* background: url("/static/beach.jpg") no-repeat; */
   background: #f3f3f3;
+  font-size: 12px;
+}
+ul,li {
+  margin: 0;
+}
+
+.wrap {
+  height: 100%;
+  max-width: 640px;
+  margin: 0 auto;
   text-align: center;
   overflow: auto;
+  font-size: 12px;
 }
 
 h4 {

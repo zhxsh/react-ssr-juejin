@@ -17,33 +17,45 @@ class Header extends React.Component {
 
 
     }
-    componentWillMount() {
+    componentDidMount() {
         const { getTimeline } = this.props;
         // getTimeline();
-    }
-    hideMenu() {
-        // console.log(1,this.props.header.show,show);
-        const { show } = this.props.header;
-        if (show) {
-            const { showMenu } = this.props;
-            showMenu(show);
-        }
 
+        document.addEventListener('click', this.listener);
+        document.getElementById('menu').addEventListener('click', this.show);
     }
+    componentWillUnmount() {
+        document.removeEventListener('click', this.listener);
+    }
+
     change(item) {
         const { changeNav } = this.props;
         this.props.history.push('/' + item.key);
         changeNav(item, this.props);
     }
 
+    show = (event) => {
+        event.stopPropagation();
+        const { showMenu, header: { show } } = this.props;
+        showMenu(show);
+    }
+
+    listener = () => {
+        const { showMenu, header: { show } } = this.props;
+        show && showMenu(show);
+    }
+
+
     render() {
-        const { navs, curNav, show } = this.props.header;
-        const { changeNav, showMenu } = this.props;
+        // const { navs, curNav, show } = this.props.header;
+        const { changeNav, showMenu, header: { navs, curNav, show } } = this.props;
         return (
-            <div className="header" onClick={() => this.hideMenu()}>
+            <div className="header">
                 <div className="menu">
                     <img src="https://b-gold-cdn.xitu.io/v3/static/img/logo.a7995ad.svg" alt="juejin" />
-                    <div className="index" onClick={() => showMenu(show)}>
+                    <div className="index"
+                        // onClick={this.show}
+                        id="menu">
                         <span>{curNav.value}</span>
                         <i className="triangle"></i>
                         {/* {
