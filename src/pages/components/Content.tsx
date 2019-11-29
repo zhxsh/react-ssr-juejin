@@ -26,7 +26,7 @@ interface articleListValue {
         //     username: string
         // },
     }],
-    
+
 }
 
 interface ArticleList {
@@ -34,20 +34,20 @@ interface ArticleList {
     articleList: articleListValue
 }
 
-export interface ContentProps { list:ArticleList };
+export interface ContentProps { list: ArticleList };
 
-export default class Header extends React.Component<ContentProps,{}> {
+export default class Header extends React.Component<ContentProps, {}> {
 
 
     render() {
         const { list } = this.props;
-        console.log('zxs',list);
+        console.log('zxs', list);
         const articleList = list.articleList;
-        return(
+        return (
             <div className="content">
                 <ul>
                     {
-                        articleList.entrylist.map((item:any) => {
+                        articleList.entrylist.map((item: any) => {
                             return (
                                 <TimelineItem key={item.objectId} {...item}></TimelineItem>
                                 // <li key={item.objectId}>
@@ -68,7 +68,7 @@ export default class Header extends React.Component<ContentProps,{}> {
                                 //     <div className="title-row">
                                 //         {item.title}
                                 //     </div>
-                                
+
                                 // </li>
                             )
                         })

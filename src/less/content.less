@@ -1,67 +1,72 @@
 @baseRem: 1/12rem;
 
 .content {
-    margin-top: 20*@baseRem;
+  margin-top: 20 * @baseRem;
 
-    // height: 1000*@baseRem;
-    
-    background: #FFF;
+  // height: 1000*@baseRem;
+
+  background: #fff;
+  overflow: auto;
+  position: sticky;
+  position: -webkit-sticky;
+  top: -10px;
 }
 
-.content>ul>li {
-    padding: 1.5rem 2rem;
+.content > ul > li {
+  padding: 1.5rem 2rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(178, 186, 194, 0.15);
 
-    border-bottom: 1px solid rgba(178,186,194,.15);
+  &:hover {
+    background: #fcfcfc;
+    cursor: pointer;
+  }
 
-    &:hover {
-        background: #fcfcfc;
-        cursor: pointer;
+  .meta-row {
+    font-size: 1rem;
+    color: #b2bac2;
+
+    ul {
+      li {
+        display: inline;
+      }
+      li::after {
+        content: "·";
+        color: rgb(178, 186, 194);
+        margin: 0px 0.4em;
+      }
+      li:last-child::after {
+        content: "";
+      }
     }
+  }
 
-    .meta-row {
-        font-size: 1rem;
-        color: #b2bac2;
+  .title-row {
+    margin: 0.5rem 0 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
 
-        ul {
-            li {
-                display: inline;
-            }
-            li::after {
-                content: '·';
-                color: rgb(178, 186, 194);
-                margin: 0px 0.4em;
-            }
-            li:last-child::after {
-                content: '';
-            }
-        }
-        
+  .action-row {
+    & > ul {
+      display: inline-flex;
     }
+    .collection {
+      display: flex;
+      align-items: center;
+      height: 24 * @baseRem;
+      padding: 0 6 * @baseRem;
+      color: #b2bac2;
+      font-size: 1.08rem;
+      border: 1px solid #edeeef;
 
-    .title-row {
-        margin: .5rem 0 1rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+      span {
+        margin-left: 4 * @baseRem;
+        font-weight: 700;
+      }
     }
-
-    .action-row {
-        &>ul {
-            display: inline-flex;
-        }
-        .collection {
-            display: flex;
-            align-items: center;
-            height: 24*@baseRem;
-            padding: 0 6*@baseRem;
-            color: #b2bac2;
-            font-size: 1.08rem;
-            border: 1px solid #edeeef;
-
-            span {
-                margin-left: 4*@baseRem;
-                font-weight: 700;
-            }
-        }
-    }
+  }
 }

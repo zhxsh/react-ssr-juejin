@@ -1,15 +1,14 @@
 import { connect } from 'react-redux';
 
-import { getTimeline } from '../actions/actions'
-import { changeNav, showMenu } from '../actions/HeaderAction'
-import Header from '../components/Header';
+import { getTimeline } from '../actions/actions';
+import { changeNav, showMenu } from '../actions/HeaderAction';
+import Header from '../pages/home/Header';
 
-
-const mapStateToProps = state => {
-    return {
-        header: state.headerReducer
-    }
-}
+const mapStateToProps = (state) => {
+  return {
+    header: state.headerReducer,
+  };
+};
 
 // store.dispatch(changeNav(1))
 // const mapDispatchToProps = dispatch => {
@@ -28,13 +27,13 @@ const mapStateToProps = state => {
 // }
 
 const HeaderContainer = connect(
-    mapStateToProps,
-    // mapDispatchToProps,
-    {
-        changeNav,
-        getTimeline,
-        showMenu
-    }
+  mapStateToProps,
+  // mapDispatchToProps,
+  {
+    changeNav,
+    getTimeline,
+    showMenu,
+  },
 )(Header);
 
 export default HeaderContainer;

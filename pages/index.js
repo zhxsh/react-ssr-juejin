@@ -1,32 +1,37 @@
-import React, { Component } from "react";
-import Head from "next/head";
-import Link from "next/link";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
+import { connect } from 'react-redux';
 import { Button } from 'antd';
+import axios from 'axios';
+import api from '../src/Api/api';
 
-import "./index.css";
-import { changeWelcome } from "../src/actions/homeAction";
+import '../src/less/index.css';
+import { changeWelcome, fetchList } from '../src/actions/homeAction';
 import HeaderContainer from '../src/containers/HeaderContainer';
+import Content from '../src/pages/home/Content';
 
-// export default
 class index extends Component {
-  // static getInitialPros({ reduxStore, req }) {
-
-  // }
+  static async getInitialProps({ reduxStore, req }) {
+    const res = await axios.get(api.timeline);
+    console.log('zz', {
+      articleList: res.data.d,
+    });
+    reduxStore.dispatch(fetchList(res.data.d));
+    return {};
+  }
   changeProps = () => {
-    this.props.changeWelcome("我是修改后的 欢迎使用 next.js");
+    this.props.changeWelcome('我是修改后的 欢迎使用 next.js');
   };
 
   render() {
     const { welcome, loginName } = this.props;
+    console.log('index', this.props);
     return (
       <div className="wrap" id="root">
         <Head>
-          <title>next.js demo</title>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0,width=device-width"
-          />
+          <title>掘金 by next.js</title>
+          <meta name="viewport" content="initial-scale=1.0,width=device-width" />
         </Head>
         {/* <div style={{ overflow: "auto" }}>
           <span className="loginName">{loginName}</span>
@@ -45,20 +50,22 @@ class index extends Component {
 
         <h2>{welcome}</h2> */}
 
-
         <HeaderContainer />
+
+        <Content {...this.props} />
       </div>
     );
   }
 }
 
-const mapStateToPros = state => {
-  return { ...state.homeReducer, ...state.loginReducer };
+const mapStateToPros = (state) => {
+  return {
+    ...state.homeReducer,
+    ...state.loginReducer,
+    ...state.articlesReducer,
+  };
 };
 
 const mapDispatchToProps = { changeWelcome };
 
-export default connect(
-  mapStateToPros,
-  mapDispatchToProps
-)(index);
+export default connect(mapStateToPros, mapDispatchToProps)(index);

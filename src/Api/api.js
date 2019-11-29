@@ -1,3 +1,7 @@
+const baseApi = "http://localhost:9500/";
+const baseApi2 = "http://localhost:9010/";
+
 export default {
-    timeline: '/timeline',
-}
+  // timeline: `${baseApi}timeline`,
+  timeline: `${baseApi2}api/timeline/get_entry_by_rank?src=web&limit=20&category=all`
+};
