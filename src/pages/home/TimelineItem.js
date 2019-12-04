@@ -1,5 +1,6 @@
 import * as React from 'react';
-
+import api from '../../Api/api';
+import axios from 'axios';
 import '../../less/common.less';
 import '../../less/content.less';
 
@@ -21,11 +22,31 @@ import '../../less/content.less';
 
 // export default class TimelineItem extends React.Component<ItemProps,{}> {
 export default class TimelineItem extends React.Component {
+  toDetail = () => {
+    console.log(api.getDetail);
+    const { objectId, originalUrl } = this.props;
+    const postId = originalUrl.substring(originalUrl.lastIndexOf('/') + 1);
+    axios
+      .get(api.getDetail, {
+        params: {
+          src: 'web',
+          postId,
+          type: 'entryView',
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   render() {
     const { ...item } = this.props;
 
     return (
-      <li key={item.objectId}>
+      <li key={item.objectId} onClick={this.toDetail}>
         <div className="meta-row">
           <ul>
             <li>{item.user.username}</li>

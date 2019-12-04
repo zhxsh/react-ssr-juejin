@@ -8,6 +8,7 @@ import api from '../src/Api/api';
 
 import '../src/less/index.css';
 import { changeWelcome, fetchList } from '../src/actions/homeAction';
+import { changeNav } from '../src/actions/HeaderAction';
 import HeaderContainer from '../src/containers/HeaderContainer';
 import Content from '../src/pages/home/Content';
 
@@ -19,6 +20,11 @@ class index extends Component {
     });
     reduxStore.dispatch(fetchList(res.data.d));
     return {};
+  }
+  componentDidMount() {
+    const { changeNav, navs, curNav, show } = this.props;
+    console.log(this.props);
+    if (curNav.id !== navs[0].id) changeNav(navs[0], this.props);
   }
   changeProps = () => {
     this.props.changeWelcome('我是修改后的 欢迎使用 next.js');
@@ -33,22 +39,6 @@ class index extends Component {
           <title>掘金 by next.js</title>
           <meta name="viewport" content="initial-scale=1.0,width=device-width" />
         </Head>
-        {/* <div style={{ overflow: "auto" }}>
-          <span className="loginName">{loginName}</span>
-        </div>
-
-        <h1>路由转到 /login</h1>
-        <Link href="/login">
-          <h4>to /login</h4>
-        </Link>
-
-        <h1
-          onClick={this.changeProps}
-          style={{ marginTop: 60, cursor: "pointer" }}>
-          修改 reducer 欢迎语
-        </h1>
-
-        <h2>{welcome}</h2> */}
 
         <HeaderContainer />
 
@@ -60,12 +50,12 @@ class index extends Component {
 
 const mapStateToPros = (state) => {
   return {
-    ...state.homeReducer,
     ...state.loginReducer,
+    ...state.headerReducer,
     ...state.articlesReducer,
   };
 };
 
-const mapDispatchToProps = { changeWelcome };
+const mapDispatchToProps = { changeWelcome, changeNav };
 
 export default connect(mapStateToPros, mapDispatchToProps)(index);

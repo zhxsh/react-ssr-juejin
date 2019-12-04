@@ -7,6 +7,7 @@
   justify-content: space-between;
   align-items: center;
 
+  position: relative;
   font-size: 16 * @baseRem;
   color: #007fff;
 
@@ -34,40 +35,6 @@
       align-items: center;
       cursor: pointer;
       // transition: all 0.3s linear;
-      ul {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        left: 0;
-
-        display: none;
-        padding: 0 1.6rem;
-        // width: 100*@baseRem;
-
-        background: #fff;
-        border: 1px solid #cdcdcd;
-        border-radius: 5 * @baseRem;
-        list-style: none;
-
-        li {
-          line-height: 4rem;
-          text-align: center;
-          color: #71777c;
-          a {
-            color: #71777c;
-            text-decoration: none;
-          }
-          &.active {
-            color: #007fff;
-            a {
-              color: #007fff;
-            }
-          }
-        }
-      }
-      ul.block {
-        display: block;
-      }
     }
 
     .triangle {
@@ -94,4 +61,43 @@
       }
     }
   }
+}
+
+ul.navs {
+  position: absolute;
+  top: 5rem;
+  width: 4rem;
+  right: 0;
+  left: 10.5rem;
+
+  display: none;
+  padding: 0 1.6rem;
+  z-index: 10;
+  // width: 100*@baseRem;
+
+  background: #fff;
+  border: 1px solid #cdcdcd;
+  border-radius: 5 * @baseRem;
+  list-style: none;
+
+  li {
+    line-height: 4rem;
+    text-align: center;
+    color: #71777c;
+    z-index: 11;
+    cursor: pointer;
+    a {
+      color: #71777c;
+      text-decoration: none;
+    }
+    &.active {
+      color: #007fff;
+      a {
+        color: #007fff;
+      }
+    }
+  }
+}
+ul.block {
+  display: block;
 }

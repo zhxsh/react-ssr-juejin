@@ -10,7 +10,7 @@ import '../../less/common.less';
 import '../../less/content.less';
 // import util from '../lib/util.ts';
 
-import TimelineItem from '../components/TimelineItem';
+import TimelineItem from './TimelineItem';
 
 export default class Header extends React.Component {
   render() {
