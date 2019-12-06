@@ -2,7 +2,7 @@
  * @Author: zhang.xiaosheng
  * @Date: 2019-01-30 16:56:24
  * @Last Modified by: zhang.xiaosheng
- * @Last Modified time: 2019-03-28 16:02:01
+ * @Last Modified time: 2019-12-06 10:26:46
  */
 import * as React from 'react';
 
@@ -14,7 +14,7 @@ import TimelineItem from './TimelineItem';
 
 export default class Header extends React.Component {
   render() {
-    // console.log("zxs c", JSON.stringify(this.props));
+    // console.log("zxs c", JSON.stringify(this.props))
     const { articleList } = this.props;
     return (
       <div className="content">

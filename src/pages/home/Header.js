@@ -1,3 +1,9 @@
+/*
+ * @Author: ted zhang
+ * @Date: 2019-12-06 10:31:12
+ * @Last Modified by: ted zhang
+ * @Last Modified time: 2019-12-06 15:23:01
+ */
 import React from 'react';
 import { Button, Menu } from 'antd';
 // import { link as Link, router as Router } from 'next';
@@ -23,8 +29,10 @@ class Header extends React.Component {
   }
 
   change = (item, event) => {
+    // console.log('change');
     const { changeNav } = this.props;
     changeNav(item, this.props);
+    event.stopPropagation();
     Router.push('/' + (item.key === '/' ? '' : item.key));
   };
 
@@ -35,6 +43,7 @@ class Header extends React.Component {
       header: { show },
     } = this.props;
     showMenu(show);
+    // console.log('menu');
   };
 
   listener = () => {
@@ -43,6 +52,7 @@ class Header extends React.Component {
       header: { show },
     } = this.props;
     show && showMenu(show);
+    // console.log('listener');
   };
 
   test = () => {

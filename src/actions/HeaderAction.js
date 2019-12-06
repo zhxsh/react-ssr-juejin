@@ -1,40 +1,37 @@
 import * as types from './ActionTypes';
 
-
 export const changeNav = (curNav, props) => {
-    // console.log(curNav.key);
-    // location.pathname = curNav.key;
-    // props.history.push('/'+item.key);
+  // console.log(curNav.key);
+  // location.pathname = curNav.key;
+  // props.history.push('/'+item.key);
 
-    return (dispatch) => {
+  return (dispatch) => {
+    console.error('zxs dis');
+    dispatch({
+      type: types.CHANGE_NAV,
+      payload: {
+        curNav,
+        show: false,
+      },
+    });
+  };
+};
 
-        console.error('zxs dis');
-        dispatch({
-            type: types.CHANGE_NAV,
-            payload: {
-                curNav
-            }
-        })
+export const showMenu = (show) => {
+  return {
+    type: types.SHOW_MENU,
+    payload: {
+      show: !show,
+    },
+  };
 
-    }
-}
-
-export const showMenu = show => {
-    return {
-        type: types.SHOW_MENU,
-        payload: {
-            show: !show
-        }
-    }
-
-    return dispatch => {
-        console.error('zxs show');
-        dispatch({
-            type: types.SHOW_MENU,
-            payload: {
-                show: !show
-            }
-        })
-
-    }
-}
+  return (dispatch) => {
+    console.error('zxs show');
+    dispatch({
+      type: types.SHOW_MENU,
+      payload: {
+        show: !show,
+      },
+    });
+  };
+};

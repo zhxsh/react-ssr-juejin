@@ -39,10 +39,6 @@ let initialState = {
 export default function HeaderReducer(state = initialState, action) {
   switch (action.type) {
     case types.CHANGE_NAV:
-      return {
-        ...state,
-        ...action.payload,
-      };
     case types.SHOW_MENU:
       return {
         ...state,
